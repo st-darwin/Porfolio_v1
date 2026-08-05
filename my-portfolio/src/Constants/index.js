@@ -1,0 +1,288 @@
+const navLinks = [
+  {
+    name: "Work",
+    link: "#work",
+  },
+  {
+    name: "Experience",
+    link: "#experience",
+  },
+  {
+    name: "Skills",
+    link: "#skills",
+  },
+  {
+    name: "Testimonials",
+    link: "#testimonials",
+  },
+];
+
+const words = [
+  { text: "Ideas", imgPath: "/images/ideas.svg" },
+  { text: "Concepts", imgPath: "/images/concepts.svg" },
+  { text: "Designs", imgPath: "/images/designs.svg" },
+  { text: "Code", imgPath: "/images/code.svg" },
+  { text: "Ideas", imgPath: "/images/ideas.svg" },
+  { text: "Concepts", imgPath: "/images/concepts.svg" },
+  { text: "Designs", imgPath: "/images/designs.svg" },
+  { text: "Code", imgPath: "/images/code.svg" },
+];
+
+const counterItems = [
+  { value: 1, suffix: "+", label: "Years of Experience" },
+  { value: 20, suffix: "+", label: "Satisfied Clients" },
+  { value: 50, suffix: "+", label: "Completed Projects" },
+  { value: 90, suffix: "%", label: "Client Retention Rate" },
+];
+
+const logoIconsList = [
+  {
+    imgPath: "/images/logos/company-logo-1.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-2.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-3.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-4.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-5.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-6.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-7.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-8.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-9.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-10.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-11.png",
+  },
+];
+
+const abilities = [
+  {
+    imgPath: "/images/seo.png",
+    title: "Quality Focus",
+    desc: "Delivering high-quality results while maintaining attention to every detail.",
+  },
+  {
+    imgPath: "/images/chat.png",
+    title: "Reliable Communication",
+    desc: "Keeping you updated at every step to ensure transparency and clarity.",
+  },
+  {
+    imgPath: "/images/time.png",
+    title: "On-Time Delivery",
+    desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
+  },
+];
+
+const techStackImgs = [
+  {
+    name: "React Developer",
+    imgPath: "/images/logos/react.png",
+  },
+  {
+    name: "Typescript Developer",
+    imgPath: "/images/logos/typescript.png",
+  },
+  {
+    name: "Backend Developer",
+    imgPath: "/images/logos/node.png",
+  },
+  {
+    name: "Python Developer",
+    imgPath: "/images/logos/python.svg",
+  },
+  {
+    name: "Project Manager",
+    imgPath: "/images/logos/git.svg",
+  },
+];
+
+const techStackIcons = [
+  {
+    name: "React Developer",
+    modelPath: "",
+    scale: 1,
+    rotation: [0, 0, 0],
+
+  },
+  {
+    name: "TypeScript Developer",
+    modelPath: "",
+    scale: 0.8,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Backend Developer",
+    modelPath: "",
+    scale: 5,
+    rotation: [0, -Math.PI / 2, 0],
+
+  },
+  {
+    name: "Interactive Developer",
+    modelPath: "",
+    scale: 0.05,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Project Manager",
+    modelPath: "",
+    scale: 0.05,
+    rotation: [0, -Math.PI / 4, 0],
+  },
+];
+
+const expCards = [
+  {
+    review: "Solomon brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+    imgPath: "/images/exp1.png",
+    logoPath: "/images/logo1.png",
+    title: "Frontend Developer",
+    date: "January 2023 - Present",
+    responsibilities: [
+      "Developed and maintained user-facing features for the Hostinger website.",
+      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
+      "Optimized web applications for maximum speed and scalability.",
+    ],
+  },
+  {
+    review: "Solomon's contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+    imgPath: "/images/exp2.png",
+    logoPath: "/images/logo2.png",
+    title: "Full Stack Developer",
+    date: "June 2020 - December 2023",
+    responsibilities: [
+      "Led the development of Docker's web applications, focusing on scalability.",
+      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
+      "Contributed to open-source projects that were used with the Docker ecosystem.",
+    ],
+  },
+  {
+    review: "Solomon’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
+    imgPath: "/images/exp3.png",
+    logoPath: "/images/logo3.png",
+    title: "React Native Developer",
+    date: "March 2019 - May 2020",
+    responsibilities: [
+      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
+      "Improved app performance and user experience through code optimization and testing.",
+      "Coordinated with the product team to implement features based on feedback.",
+    ],
+  },
+];
+
+const expLogos = [
+  {
+    name: "logo1",
+    imgPath: "/images/logo1.png",
+  },
+  {
+    name: "logo2",
+    imgPath: "/images/logo2.png",
+  },
+  {
+    name: "logo3",
+    imgPath: "/images/logo3.png",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Esther Howard",
+    mentions: "@estherhoward",
+    review:
+      "I can’t say enough good things about Solomon. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
+    imgPath: "/images/client1.png",
+  },
+  {
+    name: "Wade Warren",
+    mentions: "@wadewarren",
+    review:
+      "Working with Solomon was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
+    imgPath: "/images/client3.png",
+  },
+  {
+    name: "Guy Hawkins",
+    mentions: "@guyhawkins",
+    review:
+      "Collaborating with Solomon was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Solomon's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+    imgPath: "/images/client2.png",
+  },
+  {
+    name: "Marvin McKinney",
+    mentions: "@marvinmckinney",
+    review:
+      "Solomon was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that’s both modern and easy to navigate. Fantastic work overall.",
+    imgPath: "/images/client5.png",
+  },
+  {
+    name: "Floyd Miles",
+    mentions: "@floydmiles",
+    review:
+      "Solomon’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional!",
+    imgPath: "/images/client4.png",
+  },
+  {
+    name: "Albert Flores",
+    mentions: "@albertflores",
+    review:
+      "Solomon was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend and backend dev are top-notch.",
+    imgPath: "/images/client6.png",
+  },
+];
+
+const socialImgs = [
+ {
+    name: "GitHub",
+    url: "https://github.com/st-darwin",
+    // Clean GitHub SVG
+    imgPath: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E",
+  },
+  {
+    name: "Instagram",
+    url: "https://instagram.com/darwin_y'all_hate",
+    // Minimalist Instagram SVG
+    imgPath: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E",
+  },
+  {
+    name: "X",
+    url: "https://x.com",
+    // Modern X Logo SVG
+    imgPath: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/Uzoma solomon",
+    // LinkedIn SVG
+    imgPath: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'/%3E%3C/svg%3E",
+  },
+];
+
+export {
+  words,
+  abilities,
+  logoIconsList,
+  counterItems,
+  expCards,
+  expLogos,
+  testimonials,
+  socialImgs,
+  techStackIcons,
+  techStackImgs,
+  navLinks,
+};
