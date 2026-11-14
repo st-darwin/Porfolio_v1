@@ -1,69 +1,137 @@
-import React from 'react';
-import { socialImgs } from '../Constants';
+
+import React from "react";
+import { socialImgs } from "../Constants";
+import {
+  ArrowUpRight,
+  ArrowUp,
+  CircleDot,
+  Code2,
+} from "lucide-react";
 
 const Footer = () => {
-  return (
-    <footer className="relative w-full py-14 px-10 bg-[#0a0a0b] overflow-hidden border-t border-white/[0.03]">
-      {/* 1. The "Cool" Ambient Ambient Lighting (Replacing the Cyan Glow) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-32 bg-white/[0.02] blur-[100px] rounded-full pointer-events-none" />
+  const currentYear = new Date().getFullYear();
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-center relative z-10">
-        
-        {/* Left: Brand & Blog */}
-        <div className="flex flex-col space-y-4">
-          <div className="flex flex-col space-y-1">
-            <h3 className="text-lg font-bold tracking-tight text-white/90">
-              NEXA<span className="text-white/40">LABS</span>
-            </h3>
-            <p className="text-[10px] text-zinc-600 font-bold uppercase tracking-[0.3em]">
-              BEYOND FUTURISTIC --
+  return (
+    <footer className="relative w-full overflow-hidden border-t border-slate-800/60 bg-[#08090b] px-5 py-14 text-slate-300 sm:px-8 md:py-16">
+
+      {/* Top ambient line */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-slate-500/30 to-transparent" />
+
+      {/* Background glow */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-32 w-96 -translate-x-1/2 rounded-full bg-slate-400/[0.025] blur-[100px]" />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+
+        {/* Main Footer */}
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-3">
+
+          {/* Brand */}
+          <div className="flex flex-col items-center gap-4 md:items-start">
+
+            <a
+              href="#home"
+              aria-label="Back to homepage"
+              className="group inline-flex items-center gap-3"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700/70 bg-slate-900/70 text-slate-200 transition-all duration-300 group-hover:border-slate-500 group-hover:bg-slate-800">
+                <Code2 size={18} />
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold tracking-[0.12em] text-white">
+                  SOLOMON<span className="text-slate-500">_DARWIN</span>
+                </h3>
+
+                <p className="mt-1 text-[9px] uppercase tracking-[0.25em] text-slate-600">
+                  Thinking in systems.
+                </p>
+              </div>
+            </a>
+
+            <p className="max-w-xs text-center text-xs leading-6 text-slate-500 md:text-left">
+              Building digital experiences with curiosity, creativity, and
+              clean code.
             </p>
           </div>
-          
-          <a href="#" className="group flex items-center space-x-3 text-zinc-500 hover:text-white transition-all duration-500">
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Internal Logs</span>
-            <div className="h-[1px] w-5 bg-zinc-800 group-hover:w-10 group-hover:bg-zinc-400 transition-all duration-500" />
-          </a>
-        </div>
 
-        {/* Center: Monochromatic Socials */}
-        <div className="flex justify-center items-center space-x-3">
-          {socialImgs.map((img) => (
-            <a 
-              key={img.name} 
-              href={img.url}
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="relative group p-4 bg-white/[0.01] border border-white/[0.04] rounded-2xl transition-all duration-500 hover:bg-white/[0.04] hover:border-white/[0.1] hover:-translate-y-1"
+          {/* Social Links */}
+          <div className="flex flex-col items-center gap-5">
+
+            <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-slate-500">
+              Find me around the web
+            </span>
+
+            <div className="flex flex-wrap justify-center gap-3">
+              {socialImgs.map((img) => (
+                <a
+                  key={img.name}
+                  href={img.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={img.name}
+                  title={img.name}
+                  className="group flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800/80 bg-slate-950/80 transition-all duration-300 hover:-translate-y-1 hover:border-slate-600 hover:bg-slate-800"
+                >
+                  <img
+                    src={img.imgPath}
+                    alt=""
+                    loading="lazy"
+                    className="h-4 w-4 object-contain opacity-45 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Back to Top */}
+          <div className="flex flex-col items-center gap-4 md:items-end">
+
+            <a
+              href="#home"
+              className="group inline-flex items-center gap-3 rounded-full border border-slate-800 bg-slate-950/80 px-4 py-3 text-xs text-slate-400 transition-all duration-300 hover:border-slate-600 hover:bg-slate-900 hover:text-white"
             >
-              <img 
-                src={img.imgPath} 
-                alt={img.name} 
-                className="w-5 h-5 z-10 relative opacity-30 group-hover:opacity-100 group-hover:scale-110 transition-all duration-400 filter brightness-200" 
+              Back to top
+
+              <ArrowUp
+                size={14}
+                className="transition-transform duration-300 group-hover:-translate-y-1"
               />
             </a>
-          ))}
+
+            <div className="flex items-center gap-2 rounded-full border border-slate-800/80 bg-slate-950/60 px-3 py-2">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-slate-400 opacity-30" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-slate-400" />
+              </span>
+
+              <span className="text-[9px] uppercase tracking-[0.15em] text-slate-500">
+                Portfolio online
+              </span>
+            </div>
+          </div>
         </div>
 
-        {/* Right: Copyright & Stealth Status */}
-        <div className="flex flex-col md:items-end space-y-3">
-          <div className="flex items-center space-x-3 px-3 py-1.5 bg-zinc-900/50 border border-white/[0.05] rounded-full">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-500 opacity-20"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-zinc-400"></span>
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 font-bold">NEXALABS v.01</span>
-          </div>
-          
-          <p className="text-[10px] text-zinc-600 font-medium tracking-widest uppercase">
-            © {new Date().getFullYear()} <span className="text-zinc-400"> Darwin</span>
+        {/* Bottom Divider */}
+        <div className="my-10 h-px w-full bg-gradient-to-r from-transparent via-slate-800 to-transparent" />
+
+        {/* Copyright */}
+        <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+
+          <p className="text-[10px] tracking-wide text-slate-600">
+            © {currentYear}{" "}
+            <span className="text-slate-400">Solomon</span>.
+            All rights reserved.
           </p>
+
+          <div className="flex items-center gap-2 text-[9px] uppercase tracking-[0.18em] text-slate-600">
+            <CircleDot size={11} className="text-slate-500" />
+            Designed with intention
+            <ArrowUpRight size={11} />
+          </div>
         </div>
-        
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

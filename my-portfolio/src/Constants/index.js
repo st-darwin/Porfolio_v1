@@ -19,17 +19,18 @@ const navLinks = [
 
 const words = [
   { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
+  { text: "Apps", imgPath: "/images/concepts.svg" },
   { text: "Designs", imgPath: "/images/designs.svg" },
   { text: "Code", imgPath: "/images/code.svg" },
+  { text: "Dreams", imgPath: "/images/ideas.svg" },
+  { text: "Tools", imgPath: "/images/concepts.svg" },
+  { text: "Brands", imgPath: "/images/designs.svg" },
+  { text: "Web", imgPath: "/images/code.svg" },
   { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
 ];
 
 const counterItems = [
-  { value: 1, suffix: "+", label: "Years of Experience" },
+  { value: 2, suffix: "+", label: "Years of Experience" },
   { value: 20, suffix: "+", label: "Satisfied Clients" },
   { value: 50, suffix: "+", label: "Completed Projects" },
   { value: 90, suffix: "%", label: "Client Retention Rate" },
@@ -220,7 +221,7 @@ const testimonials = [
     name: "Guy Hawkins",
     mentions: "@guyhawkins",
     review:
-      "Collaborating with Solomon was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Solomon's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+      "Collaborating with Solomon was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Solomon's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Solomon is the ideal partner.",
     imgPath: "/images/client2.png",
   },
   {
