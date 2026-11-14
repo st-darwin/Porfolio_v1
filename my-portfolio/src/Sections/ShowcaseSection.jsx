@@ -1,583 +1,967 @@
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 const projects = [
   {
-    id: 1,
-    name: 'LectCore',
-    category: 'Education Management System',
-    image: '/images/lectcore.png',
+    id: "01",
+    name: "LectCore",
+    category: "Education Platform",
     description:
-      'A school learning management system designed to simplify academic activities and improve collaboration between students, lecturers, and administrators.',
+      "A modern learning management platform that connects students, lecturers, and administrators in one organized digital environment.",
+    image: "/images/lectcore.png",
+    year: "2026",
+    role: "Full-Stack Development",
     overview:
-      'LectCore provides a centralized platform for managing learning materials, assignments, academic resources, and other institutional activities. It brings the major academic workflows together in one organized environment.',
-    roles: ['Student', 'Lecturer', 'Administrator'],
+      "LectCore simplifies academic activities by bringing course materials, assignments, learning resources, and academic communication into one place.",
     features: [
-      {
-        title: 'Slide Management',
-        description:
-          'Lecturers can organize and share lecture slides and learning resources with their students.',
-      },
-      {
-        title: 'Assignment Management',
-        description:
-          'A dedicated assignment workflow for managing academic tasks and student submissions.',
-      },
-      {
-        title: 'Course Materials',
-        description:
-          'Students can access course-related materials and academic resources in one place.',
-      },
-      {
-        title: 'Role-Based Dashboards',
-        description:
-          'Separate experiences for students, lecturers, and administrators, with tools relevant to each role.',
-      },
+      "Student, lecturer, and admin dashboards",
+      "Course materials and lecture slides",
+      "Assignment management",
+      "Organized academic resources",
     ],
+    stack: ["React", "TypeScript", "Appwrite", "Tailwind CSS"],
+    layout: "large",
   },
   {
-    id: 2,
-    name: 'NexaCV',
-    category: 'AI-Powered Resume Platform',
-    image: '/images/nexacv.png',
+    id: "02",
+    name: "NexaCV",
+    category: "AI-Powered SaaS",
     description:
-      'An AI-powered resume platform that helps users build professional resumes and analyze existing CVs for more tailored job applications.',
+      "An AI-powered resume platform designed to help users build, analyze, and tailor professional resumes.",
+    image: "/images/nexacv.png",
+    year: "2026",
+    role: "Full-Stack Development",
     overview:
-      'NexaCV uses AI to simplify the resume-building process. Users can create resumes, upload existing CVs for analysis, and receive useful feedback to improve their applications for specific roles.',
-    roles: ['Job Seekers', 'Resume Creators'],
+      "NexaCV helps users improve their job applications through AI-powered resume analysis, feedback, and resume-building tools.",
     features: [
-      {
-        title: 'AI Resume Builder',
-        description:
-          'Generate structured professional resumes with AI-assisted content creation.',
-      },
-      {
-        title: 'Resume Analysis',
-        description:
-          'Analyze an existing CV and receive feedback on areas that could be improved.',
-      },
-      {
-        title: 'Tailored CV Feedback',
-        description:
-          'Get suggestions that help align resume content with a particular job role or opportunity.',
-      },
-      {
-        title: 'Professional Presentation',
-        description:
-          'Create cleaner, more organized resumes that communicate skills and experience effectively.',
-      },
+      "AI-powered resume analysis",
+      "ATS score and feedback",
+      "Resume building tools",
+      "Job-specific resume tailoring",
     ],
+    stack: ["React", "TypeScript", "Puter.js", "AI Integration"],
+    layout: "small",
   },
   {
-    id: 3,
-    name: 'Nexa Travel',
-    category: 'AI Travel & Booking Platform',
-    image: '/images/nexatravel.png',
+    id: "03",
+    name: "Nexa Travel",
+    category: "Travel Technology",
     description:
-      'An AI-powered travel platform that helps users generate trip plans, explore travel options, and manage bookings.',
+      "An intelligent travel platform that helps users plan trips and manage their travel experiences.",
+    image: "/images/nexatravel.png",
+    year: "2026",
+    role: "Full-Stack Development",
     overview:
-      'Nexa Travel combines AI-assisted trip planning with travel booking workflows. Users can generate personalized itineraries and proceed with flight bookings or regular trip bookings through the platform.',
-    roles: ['Traveler', 'Administrator'],
+      "Nexa Travel combines AI-assisted itinerary generation with travel management features to make trip planning more organized and convenient.",
     features: [
-      {
-        title: 'AI Trip Generation',
-        description:
-          'Generate travel itineraries based on destinations, trip duration, budget, and travel preferences.',
-      },
-      {
-        title: 'Flight Booking',
-        description:
-          'Connect generated travel plans with flight-booking workflows.',
-      },
-      {
-        title: 'Regular Trip Booking',
-        description:
-          'Support standard travel booking workflows beyond AI-generated itineraries.',
-      },
-      {
-        title: 'Admin Dashboard',
-        description:
-          'An administrative environment for managing platform activities and travel operations.',
-      },
+      "AI-generated travel itineraries",
+      "Trip planning and management",
+      "Flight and travel booking features",
+      "User and admin dashboards",
     ],
+    stack: ["React", "TypeScript", "Appwrite", "AI Integration"],
+    layout: "small",
   },
   {
-    id: 4,
-    name: 'Kinchris Automotive',
-    category: 'Automotive E-Commerce',
-    image: '/images/kinchris.png',
+    id: "04",
+    name: "Kinchris Automotive",
+    category: "Automotive Commerce",
     description:
-      'An automotive e-commerce and business management platform that connects customers with products while helping the business owner manage daily operations.',
+      "An automotive e-commerce platform built to simplify product discovery, orders, and inventory management.",
+    image: "/images/kinchris.png",
+    year: "2026",
+    role: "Full-Stack Development",
     overview:
-      'Kinchris Automotive provides two connected experiences: a customer-facing online store and a business management dashboard. Customers can browse products, manage their carts, and pay online, while the business owner manages inventory, payments, and orders.',
-    roles: ['Customer', 'Business Owner'],
+      "Kinchris Automotive provides customers with a streamlined shopping experience while giving the business owner tools to manage products, inventory, payments, and orders.",
     features: [
-      {
-        title: 'Product Storefront',
-        description:
-          'Customers can explore available automotive products and view product information.',
-      },
-      {
-        title: 'Shopping Cart',
-        description:
-          'A cart experience that allows customers to organize products before checkout.',
-      },
-      {
-        title: 'Online Payments',
-        description:
-          'Integrated Paystack payment processing for online customer transactions.',
-      },
-      {
-        title: 'Inventory Management',
-        description:
-          'The business owner can manage product stock and monitor inventory.',
-      },
-      {
-        title: 'Order Management',
-        description:
-          'A dedicated business dashboard for managing customer orders and payments.',
-      },
+      "Customer and owner dashboards",
+      "Automotive product catalogue",
+      "Shopping cart and order management",
+      "Inventory and payment management",
+      "Paystack payment integration",
     ],
+    stack: ["React", "TypeScript", "Appwrite", "Paystack"],
+    layout: "large",
   },
 ];
 
-const ShowcaseSection = () => {
-  const [activeProject, setActiveProject] = useState(null);
+function ArrowUpRight() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M7 17 17 7" />
+      <path d="M7 7h10v10" />
+    </svg>
+  );
+}
 
-  // Close modal with Escape and prevent background scrolling.
+function CloseIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <path d="m18 6-12 12M6 6l12 12" />
+    </svg>
+  );
+}
+
+function Reveal({ children, className = "", delay = 0 }) {
+  const elementRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
   useEffect(() => {
-    if (!activeProject) return;
+    const element = elementRef.current;
+
+    if (!element) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -35px 0px",
+      }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={elementRef}
+      className={`showcase-reveal ${visible ? "is-visible" : ""} ${className}`}
+      style={{ "--reveal-delay": `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function ProjectCard({ project, index, onOpen }) {
+  const isLarge = project.layout === "large";
+
+  return (
+    <Reveal
+      delay={index * 100}
+      className={`project-card-wrap ${
+        isLarge ? "project-card-large" : "project-card-small"
+      }`}
+    >
+      <button
+        type="button"
+        className="project-card"
+        onClick={() => onOpen(project)}
+        aria-label={`View details for ${project.name}`}
+      >
+        <div className="project-image-wrap">
+          <img
+            src={project.image}
+            alt={`${project.name} project preview`}
+            className="project-image"
+            loading="lazy"
+          />
+
+          <div className="project-image-overlay" />
+
+          <div className="project-image-top">
+            <span className="project-number">{project.id}</span>
+
+            <span className="project-open-icon">
+              <ArrowUpRight />
+            </span>
+          </div>
+
+          <div className="project-image-bottom">
+            <span className="project-category">{project.category}</span>
+          </div>
+        </div>
+
+        <div className="project-card-content">
+          <div className="project-card-heading">
+            <div>
+              <h3>{project.name}</h3>
+              <span className="project-year">{project.year}</span>
+            </div>
+
+            <span className="project-card-arrow">
+              <ArrowUpRight />
+            </span>
+          </div>
+
+          <p>{project.description}</p>
+
+          <div className="project-stack">
+            {project.stack.slice(0, 3).map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+
+            {project.stack.length > 3 && (
+              <span>+{project.stack.length - 3}</span>
+            )}
+          </div>
+        </div>
+      </button>
+    </Reveal>
+  );
+}
+
+function ProjectModal({ project, onClose }) {
+  useEffect(() => {
+    if (!project) return;
+
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
 
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setActiveProject(null);
+      if (event.key === "Escape") {
+        onClose();
       }
     };
 
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [activeProject]);
+  }, [project, onClose]);
+
+  if (!project) return null;
 
   return (
-    <section
-      id="work"
-      className="relative overflow-hidden bg-black px-6 py-24 md:py-32"
+    <div
+      className="project-modal-backdrop"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) {
+          onClose();
+        }
+      }}
     >
-      <div className="mx-auto max-w-7xl">
+      <div
+        className="project-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-modal-title"
+      >
+        <div className="project-modal-header">
+          <span>PROJECT DETAILS</span>
 
-        {/* Section Header */}
-        <div className="mb-14 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+          <button
+            type="button"
+            onClick={onClose}
+            className="project-modal-close"
+            aria-label="Close project details"
+          >
+            <CloseIcon />
+          </button>
+        </div>
 
-          <div className="max-w-2xl">
-            <div className="mb-5 flex items-center gap-3">
-              <span className="h-px w-8 bg-slate-500" />
-              <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-slate-500">
-                Selected Work
-              </span>
-            </div>
-
-            <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Projects that
-              <span className="text-slate-500"> make an impact.</span>
-            </h2>
-
-            <p className="mt-5 max-w-lg text-sm leading-7 text-slate-400 md:text-base">
-              A collection of digital products and applications built to solve
-              real problems through thoughtful design and development.
-            </p>
+        <div className="project-modal-scroll">
+          <div className="project-modal-image">
+            <img
+              src={project.image}
+              alt={`${project.name} preview`}
+            />
           </div>
 
-          <div className="flex items-center gap-3 text-xs font-medium text-slate-500">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
-            <span>04 Featured Projects</span>
+          <div className="project-modal-body">
+            <div className="project-modal-meta">
+              <span>{project.category}</span>
+              <span>{project.year}</span>
+            </div>
+
+            <h2 id="project-modal-title">{project.name}</h2>
+
+            <p className="project-modal-description">
+              {project.overview}
+            </p>
+
+            <div className="project-modal-section">
+              <span className="project-modal-label">MY ROLE</span>
+              <p>{project.role}</p>
+            </div>
+
+            <div className="project-modal-section">
+              <span className="project-modal-label">KEY FEATURES</span>
+
+              <div className="project-feature-grid">
+                {project.features.map((feature, index) => (
+                  <div className="project-feature" key={feature}>
+                    <span className="feature-index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="project-modal-section">
+              <span className="project-modal-label">TECHNOLOGIES</span>
+
+              <div className="project-modal-stack">
+                {project.stack.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="project-modal-footer">
+          <span>ST-DARWIN / SELECTED WORK</span>
 
-          {projects.map((project, index) => (
-            <article
-              key={project.id}
-              style={{ animationDelay: `${index * 100}ms` }}
-              className="
-                group relative overflow-hidden
-                rounded-2xl border border-slate-800/80
-                bg-slate-950/50
-                transition-all duration-500 ease-out
-                hover:-translate-y-1
-                hover:border-slate-600
-                animate-[projectEnter_700ms_ease-out_both]
-              "
-            >
-              {/* Project Image */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-
-                <img
-                  src={project.image}
-                  alt={`${project.name} project preview`}
-                  loading="lazy"
-                  onError={(event) => {
-                    event.currentTarget.style.opacity = '0';
-                  }}
-                  className="
-                    h-full w-full object-cover
-                    transition-transform duration-700 ease-out
-                    group-hover:scale-[1.04]
-                  "
-                />
-
-                {/* Image Overlay */}
-                <div className="
-                  absolute inset-0
-                  bg-gradient-to-t from-black/80 via-black/10 to-transparent
-                  opacity-80 transition-opacity duration-500
-                  group-hover:opacity-100
-                " />
-
-                {/* Project Number */}
-                <span className="
-                  absolute left-5 top-5
-                  rounded-md border border-white/10
-                  bg-black/50 px-3 py-1.5
-                  text-[10px] font-medium tracking-widest
-                  text-slate-300 backdrop-blur-md
-                ">
-                  PROJECT 0{project.id}
-                </span>
-
-                {/* Image Bottom Category */}
-                <div className="absolute bottom-5 left-5 right-5">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-300/80">
-                    {project.category}
-                  </p>
-                </div>
-              </div>
-
-              {/* Project Details */}
-              <div className="p-6 md:p-7">
-
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold tracking-tight text-slate-100 transition-colors duration-300 group-hover:text-white md:text-2xl">
-                      {project.name}
-                    </h3>
-
-                    <p className="mt-3 max-w-md text-sm leading-6 text-slate-400">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <span className="
-                    flex h-9 w-9 shrink-0 items-center justify-center
-                    rounded-full border border-slate-800
-                    text-slate-500
-                    transition-all duration-300
-                    group-hover:border-slate-600
-                    group-hover:text-slate-200
-                  ">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-4 w-4"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                    >
-                      <path
-                        d="M7 17 17 7M7 7h10v10"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </div>
-
-                {/* Card Footer */}
-                <div className="mt-7 flex items-center justify-between border-t border-slate-800/80 pt-5">
-
-                  <span className="text-[11px] font-medium tracking-wide text-slate-500">
-                    View project details
-                  </span>
-
-                  <button
-                    type="button"
-                    onClick={() => setActiveProject(project)}
-                    className="
-                      inline-flex items-center gap-2
-                      rounded-full border border-slate-700
-                      px-4 py-2.5
-                      text-xs font-medium text-slate-200
-                      transition-all duration-300
-                      hover:border-slate-400
-                      hover:bg-slate-100
-                      hover:text-black
-                      focus-visible:outline-none
-                      focus-visible:ring-2
-                      focus-visible:ring-slate-400
-                      focus-visible:ring-offset-2
-                      focus-visible:ring-offset-black
-                    "
-                  >
-                    More Info
-
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                    >
-                      <path
-                        d="M5 12h14m-6-6 6 6-6 6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-          ))}
-
+          <button type="button" onClick={onClose}>
+            Close <CloseIcon />
+          </button>
         </div>
       </div>
+    </div>
+  );
+}
 
-      {/* Project Details Modal */}
-      {activeProject && (
-        <div
-          className="
-            fixed inset-0 z-[100]
-            flex items-center justify-center
-            bg-black/80 p-4
-            backdrop-blur-md
-            animate-[modalFadeIn_250ms_ease-out_both]
-          "
-          onClick={() => setActiveProject(null)}
-          role="presentation"
-        >
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="project-modal-title"
-            className="
-              relative flex max-h-[90vh] w-full max-w-2xl
-              flex-col overflow-hidden
-              rounded-2xl border border-slate-700/70
-              bg-[#080b10]
-              shadow-[0_30px_100px_rgba(0,0,0,0.65)]
-              animate-[modalSlideUp_350ms_cubic-bezier(0.16,1,0.3,1)_both]
-            "
-            onClick={(event) => event.stopPropagation()}
-          >
+export default function ShowcaseSection() {
+  const [selectedProject, setSelectedProject] = useState(null);
 
-            {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-slate-800/80 px-6 py-5 md:px-8">
-
-              <div className="flex items-center gap-3">
-                <span className="h-2 w-2 rounded-full bg-slate-400" />
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
-                  Project Overview
-                </span>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setActiveProject(null)}
-                aria-label="Close project details"
-                className="
-                  flex h-9 w-9 items-center justify-center
-                  rounded-full border border-slate-800
-                  text-slate-400
-                  transition-all duration-300
-                  hover:rotate-90 hover:border-slate-500
-                  hover:bg-slate-800 hover:text-white
-                  focus-visible:outline-none
-                  focus-visible:ring-2 focus-visible:ring-slate-400
-                "
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="h-4 w-4"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                >
-                  <path
-                    d="m18 6-12 12M6 6l12 12"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            {/* Scrollable Modal Content */}
-            <div className="overflow-y-auto overscroll-contain">
-
-              {/* Project Image */}
-              <div className="relative aspect-[16/8] overflow-hidden bg-slate-900">
-                <img
-                  src={activeProject.image}
-                  alt={`${activeProject.name} preview`}
-                  onError={(event) => {
-                    event.currentTarget.style.opacity = '0';
-                  }}
-                  className="h-full w-full object-cover"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080b10] via-black/10 to-transparent" />
-
-                <span className="
-                  absolute bottom-5 left-6
-                  text-[10px] font-medium uppercase
-                  tracking-[0.2em] text-slate-300
-                ">
-                  {activeProject.category}
-                </span>
-              </div>
-
-              <div className="px-6 pb-8 pt-2 md:px-8 md:pb-10">
-
-                {/* Project Title */}
-                <div className="mb-7">
-                  <span className="text-xs font-medium text-slate-600">
-                    0{activeProject.id} / 04
-                  </span>
-
-                  <h3
-                    id="project-modal-title"
-                    className="mt-2 text-3xl font-semibold tracking-tight text-white md:text-4xl"
-                  >
-                    {activeProject.name}
-                  </h3>
-
-                  <p className="mt-4 text-sm leading-7 text-slate-400">
-                    {activeProject.overview}
-                  </p>
-                </div>
-
-                {/* Platform Roles */}
-                <div className="mb-8">
-                  <h4 className="mb-3 text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
-                    Platform Access
-                  </h4>
-
-                  <div className="flex flex-wrap gap-2">
-                    {activeProject.roles.map((role) => (
-                      <span
-                        key={role}
-                        className="
-                          rounded-lg border border-slate-800
-                          bg-slate-900/60
-                          px-3 py-2
-                          text-xs font-medium text-slate-300
-                        "
-                      >
-                        {role}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Features */}
-                <div>
-                  <div className="mb-4 flex items-center justify-between">
-                    <h4 className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
-                      Key Features
-                    </h4>
-
-                    <span className="text-[10px] text-slate-600">
-                      {activeProject.features.length} Features
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    {activeProject.features.map((feature, index) => (
-                      <div
-                        key={feature.title}
-                        className="
-                          rounded-xl border border-slate-800/80
-                          bg-slate-950/70 p-4
-                          transition-colors duration-300
-                          hover:border-slate-700
-                        "
-                      >
-                        <div className="mb-3 flex items-center gap-3">
-                          <span className="
-                            flex h-6 w-6 items-center justify-center
-                            rounded-md bg-slate-800/80
-                            text-[10px] font-medium text-slate-400
-                          ">
-                            0{index + 1}
-                          </span>
-
-                          <h5 className="text-sm font-medium text-slate-200">
-                            {feature.title}
-                          </h5>
-                        </div>
-
-                        <p className="text-xs leading-6 text-slate-500">
-                          {feature.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Modal Footer */}
-                <div className="mt-8 flex items-center justify-between border-t border-slate-800/80 pt-5">
-                  <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-slate-600">
-                    Featured Project
-                  </span>
-
-                  <button
-                    type="button"
-                    onClick={() => setActiveProject(null)}
-                    className="
-                      rounded-full bg-slate-100
-                      px-5 py-2.5
-                      text-xs font-medium text-black
-                      transition-all duration-300
-                      hover:bg-white hover:shadow-lg
-                      focus-visible:outline-none
-                      focus-visible:ring-2 focus-visible:ring-slate-400
-                    "
-                  >
-                    Close Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Animations */}
+  return (
+    <section id="projects" className="showcase-section">
       <style>{`
-        @keyframes projectEnter {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
+        .showcase-section {
+          --showcase-bg: #08090b;
+          --showcase-card: #101114;
+          --showcase-border: rgba(255, 255, 255, 0.09);
+          --showcase-muted: #85868e;
+          --showcase-text: #f4f4f5;
+          position: relative;
+          isolation: isolate;
+          width: 100%;
+          padding: 120px 0;
+          overflow: hidden;
+          color: var(--showcase-text);
+          background: var(--showcase-bg);
+          font-family: inherit;
+        }
+
+        .showcase-section *,
+        .showcase-section *::before,
+        .showcase-section *::after {
+          box-sizing: border-box;
+        }
+
+        .showcase-section,
+        .showcase-section .project-modal-scroll {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+
+        .showcase-section::-webkit-scrollbar,
+        .showcase-section *::-webkit-scrollbar,
+        .project-modal-scroll::-webkit-scrollbar {
+          display: none;
+          width: 0;
+          height: 0;
+        }
+
+        .showcase-container {
+          width: min(1180px, calc(100% - 48px));
+          margin: 0 auto;
+        }
+
+        .showcase-glow {
+          position: absolute;
+          z-index: -1;
+          width: 520px;
+          height: 520px;
+          top: 8%;
+          right: -280px;
+          border-radius: 50%;
+          background: rgba(99, 102, 241, 0.09);
+          filter: blur(120px);
+          pointer-events: none;
+        }
+
+        .showcase-glow-two {
+          position: absolute;
+          z-index: -1;
+          width: 400px;
+          height: 400px;
+          left: -250px;
+          top: 55%;
+          border-radius: 50%;
+          background: rgba(56, 189, 248, 0.055);
+          filter: blur(110px);
+          pointer-events: none;
+        }
+
+        .showcase-heading {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          gap: 35px;
+          margin-bottom: 58px;
+        }
+
+        .showcase-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 22px;
+          color: #a1a1aa;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+        }
+
+        .showcase-eyebrow::before {
+          content: "";
+          width: 22px;
+          height: 1px;
+          background: #818cf8;
+        }
+
+        .showcase-heading h2 {
+          max-width: 680px;
+          margin: 0;
+          font-size: clamp(36px, 5.5vw, 66px);
+          line-height: 1.04;
+          letter-spacing: -0.065em;
+          font-weight: 600;
+        }
+
+        .showcase-heading h2 span {
+          color: #777985;
+        }
+
+        .showcase-heading-description {
+          max-width: 285px;
+          margin: 0 0 5px;
+          color: var(--showcase-muted);
+          font-size: 13px;
+          line-height: 1.9;
+        }
+
+        .showcase-grid {
+          display: grid;
+          grid-template-columns: repeat(12, minmax(0, 1fr));
+          gap: 34px 22px;
+          align-items: start;
+        }
+
+        .project-card-wrap {
+          min-width: 0;
+        }
+
+        .project-card-large {
+          grid-column: span 7;
+        }
+
+        .project-card-small {
+          grid-column: span 5;
+        }
+
+        .project-card {
+          display: block;
+          width: 100%;
+          padding: 0;
+          overflow: hidden;
+          text-align: left;
+          color: inherit;
+          background: transparent;
+          border: 0;
+          cursor: pointer;
+          font: inherit;
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Project images */
+
+        .project-image-wrap {
+          position: relative;
+          display: block;
+          width: 100%;
+          aspect-ratio: 1.55 / 1;
+          overflow: hidden;
+          isolation: isolate;
+          padding: 0;
+          border: 1px solid var(--showcase-border);
+          border-radius: 15px;
+          background: #08090b;
+          transform: translateZ(0);
+        }
+
+        .project-card-small .project-image-wrap {
+          aspect-ratio: 1.25 / 1;
+        }
+
+        .project-image {
+          display: block;
+          width: 100%;
+          height: 100%;
+          max-width: none;
+          max-height: none;
+          object-fit: cover;
+          object-position: center;
+          padding: 0;
+          margin: 0;
+          opacity: 0.96;
+          transform: scale(1);
+          transition:
+            transform 900ms cubic-bezier(0.2, 0.75, 0.25, 1),
+            opacity 700ms ease;
+        }
+
+        .project-image-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.25) 0%,
+            transparent 30%,
+            transparent 55%,
+            rgba(0, 0, 0, 0.48) 100%
+          );
+          pointer-events: none;
+        }
+
+        .project-image-top {
+          position: absolute;
+          top: 16px;
+          left: 16px;
+          right: 16px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .project-number {
+          display: grid;
+          place-items: center;
+          min-width: 34px;
+          height: 30px;
+          padding: 0 9px;
+          color: white;
+          background: rgba(10, 10, 12, 0.48);
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          border-radius: 8px;
+          backdrop-filter: blur(12px);
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+        }
+
+        .project-open-icon {
+          display: grid;
+          place-items: center;
+          width: 38px;
+          height: 38px;
+          color: white;
+          background: rgba(10, 10, 12, 0.42);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 50%;
+          backdrop-filter: blur(12px);
+          transition:
+            color 350ms ease,
+            background 350ms ease,
+            transform 450ms cubic-bezier(0.2, 0.75, 0.25, 1);
+        }
+
+        .project-image-bottom {
+          position: absolute;
+          left: 17px;
+          bottom: 17px;
+        }
+
+        .project-category {
+          display: inline-flex;
+          padding: 8px 11px;
+          color: rgba(255, 255, 255, 0.92);
+          background: rgba(12, 12, 15, 0.48);
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          border-radius: 7px;
+          backdrop-filter: blur(12px);
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.04em;
+        }
+
+        .project-card-content {
+          padding: 21px 2px 0;
+        }
+
+        .project-card-heading {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+        }
+
+        .project-card-heading > div {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+
+        .project-card-heading h3 {
+          margin: 0;
+          color: #f4f4f5;
+          font-size: clamp(19px, 2.1vw, 25px);
+          font-weight: 600;
+          letter-spacing: -0.045em;
+          transition: color 300ms ease;
+        }
+
+        .project-year {
+          color: #747580;
+          font-size: 11px;
+          font-weight: 500;
+        }
+
+        .project-card-arrow {
+          display: grid;
+          place-items: center;
+          flex: 0 0 auto;
+          width: 34px;
+          height: 34px;
+          color: #9b9ca5;
+          border: 1px solid rgba(255, 255, 255, 0.11);
+          border-radius: 50%;
+          transition:
+            transform 400ms ease,
+            color 300ms ease,
+            border-color 300ms ease,
+            background 300ms ease;
+        }
+
+        .project-card-content > p {
+          max-width: 520px;
+          margin: 10px 0 17px;
+          color: #898a93;
+          font-size: 12px;
+          line-height: 1.9;
+          font-weight: 400;
+        }
+
+        .project-stack,
+        .project-modal-stack {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 7px;
+        }
+
+        .project-stack span,
+        .project-modal-stack span {
+          padding: 7px 10px;
+          color: #a4a5ad;
+          background: rgba(255, 255, 255, 0.035);
+          border: 1px solid rgba(255, 255, 255, 0.075);
+          border-radius: 6px;
+          font-size: 10px;
+          font-weight: 500;
+        }
+
+        @media (hover: hover) {
+          .project-card:hover .project-image {
+            transform: scale(1.025);
             opacity: 1;
-            transform: translateY(0);
+          }
+
+          .project-card:hover .project-open-icon {
+            color: #111216;
+            background: #f4f4f5;
+            transform: rotate(45deg);
+          }
+
+          .project-card:hover .project-card-heading h3 {
+            color: #a5b4fc;
+          }
+
+          .project-card:hover .project-card-arrow {
+            color: #fff;
+            border-color: rgba(165, 180, 252, 0.45);
+            background: rgba(129, 140, 248, 0.12);
+            transform: translate(2px, -2px);
           }
         }
 
-        @keyframes modalFadeIn {
+        .showcase-reveal {
+          opacity: 0;
+          transform: translate3d(0, 25px, 0);
+          transition:
+            opacity 850ms cubic-bezier(0.2, 0.65, 0.3, 1),
+            transform 850ms cubic-bezier(0.2, 0.65, 0.3, 1);
+          transition-delay: var(--reveal-delay, 0ms);
+        }
+
+        .showcase-reveal.is-visible {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+
+        .showcase-footer {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          margin-top: 65px;
+          padding-top: 22px;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          color: #777984;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+
+        .showcase-footer span:last-child {
+          color: #a5a6ae;
+        }
+
+        /* Modal */
+
+        .project-modal-backdrop {
+          position: fixed;
+          z-index: 9999;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+          background: rgba(0, 0, 0, 0.76);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          animation: modalBackdropIn 300ms ease both;
+        }
+
+        .project-modal {
+          display: flex;
+          flex-direction: column;
+          width: min(700px, 100%);
+          max-height: min(850px, 90vh);
+          overflow: hidden;
+          color: #f4f4f5;
+          background: #101114;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 17px;
+          box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+          animation: modalContentIn 450ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+        }
+
+        .project-modal-header,
+        .project-modal-footer {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex: 0 0 auto;
+          padding: 16px 21px;
+        }
+
+        .project-modal-header {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .project-modal-header > span,
+        .project-modal-footer > span {
+          color: #858691;
+          font-size: 9px;
+          font-weight: 600;
+          letter-spacing: 0.15em;
+        }
+
+        .project-modal-close {
+          display: grid;
+          place-items: center;
+          width: 34px;
+          height: 34px;
+          padding: 0;
+          color: #a1a1aa;
+          background: rgba(255, 255, 255, 0.045);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 50%;
+          cursor: pointer;
+          transition:
+            color 250ms ease,
+            background 250ms ease,
+            transform 300ms ease;
+        }
+
+        .project-modal-close:hover {
+          color: white;
+          background: rgba(255, 255, 255, 0.12);
+          transform: rotate(90deg);
+        }
+
+        .project-modal-scroll {
+          min-height: 0;
+          overflow-y: auto;
+          overscroll-behavior: contain;
+        }
+
+        .project-modal-image {
+          display: block;
+          width: 100%;
+          aspect-ratio: 16 / 7;
+          overflow: hidden;
+          padding: 0;
+          margin: 0;
+          background: #08090b;
+        }
+
+        .project-modal-image img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          max-width: none;
+          max-height: none;
+          padding: 0;
+          margin: 0;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .project-modal-body {
+          padding: 27px;
+        }
+
+        .project-modal-meta {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: #999aa3;
+          font-size: 10px;
+          font-weight: 500;
+        }
+
+        .project-modal-meta span + span::before {
+          content: "·";
+          margin-right: 10px;
+          color: #55565e;
+        }
+
+        .project-modal-body h2 {
+          margin: 12px 0;
+          color: #f4f4f5;
+          font-size: clamp(27px, 5vw, 39px);
+          line-height: 1.1;
+          letter-spacing: -0.055em;
+          font-weight: 600;
+        }
+
+        .project-modal-description {
+          max-width: 580px;
+          margin: 0;
+          color: #999aa3;
+          font-size: 12px;
+          line-height: 1.9;
+        }
+
+        .project-modal-section {
+          margin-top: 29px;
+        }
+
+        .project-modal-label {
+          display: block;
+          margin-bottom: 13px;
+          color: #777984;
+          font-size: 9px;
+          font-weight: 600;
+          letter-spacing: 0.15em;
+        }
+
+        .project-modal-section > p {
+          margin: 0;
+          color: #d0d0d5;
+          font-size: 12px;
+        }
+
+        .project-feature-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 9px;
+        }
+
+        .project-feature {
+          display: flex;
+          align-items: flex-start;
+          gap: 11px;
+          min-height: 54px;
+          padding: 13px;
+          color: #c7c7ce;
+          background: rgba(255, 255, 255, 0.035);
+          border: 1px solid rgba(255, 255, 255, 0.065);
+          border-radius: 8px;
+          font-size: 11px;
+          line-height: 1.6;
+        }
+
+        .feature-index {
+          color: #818cf8;
+          font-size: 9px;
+          font-weight: 600;
+        }
+
+        .project-modal-footer {
+          border-top: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .project-modal-footer button {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 9px 12px;
+          color: #e4e4e7;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.09);
+          border-radius: 7px;
+          font: inherit;
+          font-size: 10px;
+          cursor: pointer;
+          transition: background 250ms ease;
+        }
+
+        .project-modal-footer button:hover {
+          background: rgba(255, 255, 255, 0.12);
+        }
+
+        @keyframes modalBackdropIn {
           from { opacity: 0; }
           to { opacity: 1; }
         }
 
-        @keyframes modalSlideUp {
+        @keyframes modalContentIn {
           from {
             opacity: 0;
-            transform: translateY(24px) scale(0.98);
+            transform: translateY(18px) scale(0.985);
           }
           to {
             opacity: 1;
@@ -585,19 +969,199 @@ const ShowcaseSection = () => {
           }
         }
 
+        @media (max-width: 760px) {
+          .showcase-section {
+            padding: 90px 0;
+          }
+
+          .showcase-container {
+            width: min(100% - 36px, 600px);
+          }
+
+          .showcase-heading {
+            display: block;
+            margin-bottom: 38px;
+          }
+
+          .showcase-heading h2 {
+            max-width: 520px;
+            font-size: clamp(37px, 9vw, 54px);
+          }
+
+          .showcase-heading-description {
+            max-width: 420px;
+            margin-top: 18px;
+          }
+
+          .showcase-grid {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 34px 16px;
+          }
+
+          .project-card-large,
+          .project-card-small {
+            grid-column: span 6;
+          }
+
+          .project-image-wrap,
+          .project-card-small .project-image-wrap {
+            aspect-ratio: 1.55 / 1;
+          }
+
+          .project-card-content {
+            padding-top: 17px;
+          }
+
+          .showcase-footer {
+            margin-top: 45px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .showcase-section {
+            padding: 75px 0;
+          }
+
+          .showcase-container {
+            width: calc(100% - 30px);
+          }
+
+          .showcase-eyebrow {
+            margin-bottom: 17px;
+            font-size: 9px;
+          }
+
+          .showcase-heading h2 {
+            font-size: 39px;
+          }
+
+          .showcase-grid {
+            gap: 29px;
+          }
+
+          .project-image-wrap,
+          .project-card-small .project-image-wrap {
+            aspect-ratio: 1.25 / 1;
+            border-radius: 12px;
+          }
+
+          .project-image-top {
+            top: 11px;
+            left: 11px;
+            right: 11px;
+          }
+
+          .project-image-bottom {
+            left: 12px;
+            bottom: 12px;
+          }
+
+          .project-card-content > p {
+            font-size: 11px;
+          }
+
+          .project-card-heading h3 {
+            font-size: 20px;
+          }
+
+          .showcase-footer {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 9px;
+          }
+
+          .project-modal-backdrop {
+            align-items: flex-end;
+            padding: 10px;
+          }
+
+          .project-modal {
+            max-height: 92vh;
+            border-radius: 14px;
+          }
+
+          .project-modal-body {
+            padding: 21px 17px;
+          }
+
+          .project-modal-image {
+            aspect-ratio: 16 / 9;
+          }
+
+          .project-feature-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .project-modal-header,
+          .project-modal-footer {
+            padding: 13px 15px;
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-          *,
-          *::before,
-          *::after {
+          .showcase-section *,
+          .showcase-section *::before,
+          .showcase-section *::after {
+            scroll-behavior: auto !important;
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
-            scroll-behavior: auto !important;
             transition-duration: 0.01ms !important;
+          }
+
+          .showcase-reveal {
+            opacity: 1;
+            transform: none;
           }
         }
       `}</style>
+
+      <div className="showcase-glow" />
+      <div className="showcase-glow-two" />
+
+      <div className="showcase-container">
+        <Reveal>
+          <div className="showcase-heading">
+            <div>
+              <span className="showcase-eyebrow">SELECTED WORK / 2026</span>
+
+              <h2>
+                Things I've
+                <br />
+                <span>built with purpose.</span>
+              </h2>
+            </div>
+
+            <p className="showcase-heading-description">
+              A collection of digital experiences, products, and platforms
+              focused on solving real problems through thoughtful design and
+              development.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="showcase-grid">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              onOpen={setSelectedProject}
+            />
+          ))}
+        </div>
+
+        <Reveal delay={250}>
+          <div className="showcase-footer">
+            <span>ST-DARWIN — Selected projects</span>
+            <span>Designed & developed with intention.</span>
+          </div>
+        </Reveal>
+      </div>
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
-};
-
-export default ShowcaseSection;
+}

@@ -5,7 +5,7 @@ import {
   Code2,
   BrainCircuit,
   ArrowUpRight,
-  Sparkles,
+  Ghost,
   MapPin,
   CalendarDays,
   CircleDot,
@@ -259,7 +259,7 @@ const ExperienceSection = () => {
         {/* Closing Message */}
         <div className="mx-auto mt-20 flex max-w-3xl flex-col items-center text-center">
           <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 text-slate-300">
-            <Sparkles size={17} />
+            <Ghost size={17} />
           </div>
 
           <h3 className="text-xl font-semibold tracking-tight text-white md:text-2xl">

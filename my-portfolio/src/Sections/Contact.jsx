@@ -6,7 +6,7 @@ import {
   Mail,
   MessageCircle,
   Send,
-  Sparkles,
+  Ghost,
 } from "lucide-react";
 
 const Contact = () => {
@@ -359,7 +359,7 @@ const Contact = () => {
           <div className="rounded-2xl border border-white/[0.07] bg-[#0c0d0f] p-6 sm:p-9 lg:col-span-7">
             <div className="mb-8">
               <div className="mb-3 flex items-center gap-2 text-white/50">
-                <Sparkles size={15} />
+                <Ghost size={15} />
                 <span className="text-xs font-medium tracking-wide">
                   GET IN TOUCH
                 </span>

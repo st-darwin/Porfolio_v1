@@ -87,7 +87,7 @@ const Footer = () => {
           <div className="flex flex-col items-center gap-4 md:items-end">
 
             <a
-              href="#home"
+              href="/"
               className="group inline-flex items-center gap-3 rounded-full border border-slate-800 bg-slate-950/80 px-4 py-3 text-xs text-slate-400 transition-all duration-300 hover:border-slate-600 hover:bg-slate-900 hover:text-white"
             >
               Back to top
