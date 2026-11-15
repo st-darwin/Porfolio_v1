@@ -258,6 +258,7 @@ function ProjectModal({ project, onClose }) {
 
   return (
     <div
+
       className="project-modal-backdrop"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) {
@@ -353,7 +354,7 @@ export default function ShowcaseSection() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="showcase-section">
+    <section id="work" className="showcase-section">
       <style>{`
         .showcase-section {
           --showcase-bg: #08090b;
