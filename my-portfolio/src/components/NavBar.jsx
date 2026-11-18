@@ -214,7 +214,7 @@ const NavBar = () => {
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={menuOpen}
-            className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.09] bg-white/[0.04] text-white/80 transition-all duration-300 hover:bg-white/[0.09] lg:hidden"
+            className="relative cursor-pointer flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.09] bg-white/[0.04] text-white/80 transition-all duration-300 hover:bg-white/[0.09] lg:hidden"
           >
             <span className="relative flex h-4 w-4 items-center justify-center">
               <Menu
@@ -296,7 +296,7 @@ const NavBar = () => {
 
                 <button
                   onClick={openCollaborationModal}
-                  className="flex items-center justify-center gap-2 rounded-xl bg-white px-3 py-3 text-xs font-semibold text-black transition-colors hover:bg-slate-200"
+                  className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-white px-3 py-3 text-xs font-semibold text-black transition-colors hover:bg-slate-200"
                 >
                   <Ghost size={14} />
                   Wanna Collab?
@@ -339,13 +339,13 @@ const NavBar = () => {
                 type="button"
                 onClick={() => setCollabOpen(false)}
                 aria-label="Close collaboration modal"
-                className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] text-white/50 transition-all hover:bg-white/[0.09] hover:text-white"
+                className="absolute right-5 cursor-pointer top-5 flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] text-white/50 transition-all hover:bg-white/[0.09] hover:text-white"
               >
                 <X size={17} />
               </button>
 
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/[0.10] bg-white/[0.05]">
-                <Code2 size={21} className="text-white/80" />
+               <img src="/images/portpic1.jpg" className="h-full w-full rounded-2xl object-cover" alt="Profile Picture" />
               </div>
 
               <div className="mb-3 flex items-center gap-2">
@@ -383,7 +383,7 @@ const NavBar = () => {
                       key={option.id}
                       type="button"
                       onClick={() => setSelectedOption(option.id)}
-                      className={`group flex w-full items-center justify-between rounded-2xl border p-4 text-left transition-all duration-200 ${
+                      className={`group cursor-pointer flex w-full items-center justify-between rounded-2xl border p-4 text-left transition-all duration-200 ${
                         isSelected
                           ? "border-white/25 bg-white/[0.075]"
                           : "border-white/[0.07] bg-white/[0.02] hover:border-white/[0.15] hover:bg-white/[0.045]"
@@ -450,7 +450,7 @@ const NavBar = () => {
                 <button
                   type="button"
                   onClick={handleWhatsApp}
-                  className="group mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-semibold text-black transition-all duration-300 hover:bg-slate-200 active:scale-[0.98]"
+                  className="group mt-5  cursor-pointer flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-semibold text-black transition-all duration-300 hover:bg-slate-200 active:scale-[0.98]"
                 >
                   <Send size={15} />
                   Let's talk on WhatsApp
@@ -464,7 +464,7 @@ const NavBar = () => {
               <button
                 type="button"
                 onClick={() => setCollabOpen(false)}
-                className="mt-4 w-full py-2 text-xs font-medium text-white/35 transition-colors hover:text-white/70"
+                className="mt-4 cursor-pointer w-full py-2 text-xs font-medium text-white/35 transition-colors hover:text-white/70"
               >
                 Maybe later
               </button>
